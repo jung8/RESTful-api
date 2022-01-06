@@ -1,0 +1,24 @@
+<div class="card border-info mb-3 border-3 rounded text-center">
+    <h1 class="card-header">User Info</h1>
+    <div class="card-body">
+        <p class="card-text">Below is your unique user ID and JSON Web Token obtained from Auth0.</p>
+        <h5>user_id:</h5>
+        <i>{{user_id}}</i>
+        <br><br>
+        <button id="copy" type="button" class="btn btn-warning" onclick="copy()">copy JWT</button>
+        <button id="logout" type="button" class="btn btn-danger" onclick="logout()">Logout</button>
+        <br><br>
+        <label for="tokenBox"><h5>JSON Web Token :</h5></label><br>
+        <textarea id="tokenBox">{{jwt}}</textarea>
+    </div>
+</div>
+<script>
+    function copy() {
+        var jwt = document.getElementById('tokenBox');
+        jwt.select();
+        document.execCommand('copy');
+    }
+    function logout() {
+        window.location.assign('/logout')
+    }
+</script>
